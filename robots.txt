@@ -1,1 +1,6 @@
 
+User-agent: *
+Allow: /
+
+Sitemap: https://devtiwari-bit.github.io/Clicker-Arena/sitemap.xml
+
