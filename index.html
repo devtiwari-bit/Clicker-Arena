@@ -1,256 +1,679 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="google-site-verification" content="lWj1SJEMwzx8-Du4kVNx6Q-MwCpx8_rDB4k-ImuEpmU" />
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<!-- FIX MOBILE ZOOM + DOUBLE TAP ZOOM -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="google-site-verification" content="lWj1SJEMwzx8-Du4kVNx6Q-MwCpx8_rDB4k-ImuEpmU">
 
-<title>Clicker Arena -Ved Games Production</title>
-<link rel="icon" type="image/png" href="favicon.png">
+  <title>Clicker Arena - Ved Games Production</title>
 
-<meta name="description" content="Play Clicker Arena Game online free by Ved Games Production. Don't Stop!">
+  <meta name="description" content="Play Clicker Arena free online. Test your clicking speed, build your score, beat your personal best, and climb the ranks in this neon arcade game by Ved Games Production.">
 
-<meta property="og:title" content="Clicker Arena - Ved Games Production">
-<meta property="og:description" content="Play Clicker Arena online free. Simple and addictive browser game.">
-<meta property="og:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
-<meta property="og:url" content="https://devtiwari-bit.github.io/Clicker-Arena/">
-<meta property="og:type" content="website">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://devtiwari-bit.github.io/Clicker-Arena/">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="theme-color" content="#070b18">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Clicker Arena - Ved Games Production">
-<meta name="twitter:description" content="Play Clicker Arena Game online free browser game.">
-<meta name="twitter:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Clicker Arena - Ved Games Production">
+  <meta property="og:description" content="How fast can you click? Enter the neon arena, beat your best score, and earn your rank.">
+  <meta property="og:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
+  <meta property="og:url" content="https://devtiwari-bit.github.io/Clicker-Arena/">
+  <meta property="og:type" content="website">
 
-<style>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Clicker Arena - Ved Games Production">
+  <meta name="twitter:description" content="Test your clicking speed in this free neon arcade game.">
+  <meta name="twitter:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
 
-html, body {
-  width:100%;
-  height:100%;
-  margin:0;
-  padding:0;
-  overflow-x:hidden;
+  <style>
+    :root {
+      color-scheme: dark;
+      --cyan: #35e8ff;
+      --green: #53ffb0;
+      --muted: #a6b3ca;
+    }
 
-  /* FIX DOUBLE TAP ZOOM */
-  touch-action: manipulation;
+    * {
+      box-sizing: border-box;
+    }
 
-  font-family:Arial;
-  background:radial-gradient(circle at top,#0b0f1a,#000);
-  color:white;
-  text-align:center;
-}
+    html {
+      min-height: 100%;
+      background: #050814;
+      touch-action: manipulation;
+    }
 
-/* MAIN CARD */
-.box{
-  width:90%;
-  max-width:360px;
-  margin:60px auto;
-  padding:25px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(0,180,255,0.25);
-  box-shadow:0 0 25px rgba(0,180,255,0.15);
-  backdrop-filter:blur(10px);
-  box-sizing:border-box;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #f5f8ff;
+      text-align: center;
+      background: radial-gradient(
+        ellipse at 50% -15%,
+        #16365d 0%,
+        #0a1023 42%,
+        #050814 78%
+      );
+    }
 
-/* TITLE */
-h1{
-  color:#00c8ff;
-  text-shadow:0 0 10px #00c8ff;
-  margin-bottom:5px;
-}
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.16;
+    }
 
-/* SLOGAN */
-#slogan{
-  color:#aaa;
-  font-size:13px;
-  height:20px;
-  margin-bottom:15px;
-}
+    body::before {
+      width: 240px;
+      height: 240px;
+      background: #00d9ff;
+      top: 15%;
+      left: -100px;
+    }
 
-/* TIMER */
-.timer{
-  font-size:20px;
-  color:#ffcc00;
-  text-shadow:0 0 10px #ffcc00;
-}
+    body::after {
+      width: 260px;
+      height: 260px;
+      background: #6b46ff;
+      right: -100px;
+      bottom: 8%;
+    }
 
-/* BUTTONS */
-button{
-  padding:12px 18px;
-  margin:10px;
-  font-size:15px;
-  border:none;
-  border-radius:12px;
-  cursor:pointer;
-  transition:0.2s;
-}
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 28px, 540px);
+      margin: 0 auto;
+      padding: 24px 0 22px;
+    }
 
-button:active{
-  transform:scale(0.9);
-}
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #9fb4d3;
+      text-transform: uppercase;
+      margin: 5px 0 17px;
+    }
 
-/* START */
-#startBtn{
-  background:linear-gradient(45deg,#00c8ff,#0066ff);
-  color:white;
-}
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      color: #06111b;
+      font-size: 15px;
+      box-shadow: 0 0 22px #35e8ff35;
+    }
 
-/* CLICK */
-#clickBtn{
-  background:linear-gradient(45deg,#00ffcc,#0099ff);
-  color:black;
-  font-weight:bold;
-  box-shadow:0 0 12px #00ffcc;
-}
+    .card {
+      padding: clamp(22px, 5vw, 34px);
+      border: 1px solid #8cecff24;
+      border-radius: 26px;
+      background: linear-gradient(
+        145deg,
+        rgba(19, 31, 59, 0.91),
+        rgba(8, 14, 31, 0.94)
+      );
+      box-shadow: 0 22px 70px #0007, inset 0 1px #ffffff0a;
+      backdrop-filter: blur(16px);
+    }
 
-/* FLOAT */
-.float{
-  position:absolute;
-  color:#00c8ff;
-  font-weight:bold;
-  animation:floatUp 1s linear forwards;
-  pointer-events:none;
-}
+    h1 {
+      font-size: clamp(32px, 8vw, 48px);
+      line-height: 1.05;
+      margin: 0;
+      font-weight: 950;
+      letter-spacing: -1.8px;
+      background: linear-gradient(90deg, #fff 4%, var(--cyan) 48%, var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-@keyframes floatUp{
-  from{opacity:1; transform:translateY(0);}
-  to{opacity:0; transform:translateY(-80px);}
-}
+    .subtitle {
+      margin: 12px 0 23px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-/* RANK */
-.rank{
-  margin-top:10px;
-  color:#00ff99;
-}
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 18px;
+    }
 
-/* FOOTER */
-.footer{
-  margin-top:20px;
-  font-size:12px;
-  color:white;
-  opacity:0.8;
-}
+    .stat {
+      min-width: 0;
+      padding: 13px 6px;
+      border-radius: 16px;
+      background: #060b19a8;
+      border: 1px solid #ffffff0c;
+    }
 
-</style>
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: #8294b3;
+      font-weight: 800;
+    }
+
+    .stat-value {
+      font-size: clamp(21px, 5vw, 28px);
+      font-weight: 900;
+      margin-top: 5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cyan {
+      color: var(--cyan);
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    .progress {
+      height: 6px;
+      background: #ffffff12;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 23px;
+    }
+
+    #progressBar {
+      height: 100%;
+      width: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      transition: width 0.15s linear;
+    }
+
+    .arena {
+      position: relative;
+      min-height: 170px;
+      display: grid;
+      place-items: center;
+      border: 1px dashed #78dfff35;
+      border-radius: 21px;
+      background: radial-gradient(ellipse at center, #10223c88, transparent 72%);
+      overflow: hidden;
+    }
+
+    .arena::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(#7edfff08 1px, transparent 1px),
+        linear-gradient(90deg, #7edfff08 1px, transparent 1px);
+      background-size: 25px 25px;
+      pointer-events: none;
+    }
+
+    #clickBtn {
+      position: relative;
+      z-index: 2;
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      border: 2px solid #8cfff1;
+      background: radial-gradient(
+        circle at 35% 25%,
+        #b4fff0,
+        #32f3cb 35%,
+        #0c9bba 100%
+      );
+      color: #03151b;
+      font-size: 19px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      box-shadow:
+        0 0 0 9px #35e8ff10,
+        0 0 35px #35e8ff55,
+        inset 0 -9px 16px #006b7a55;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      transition: transform 0.08s, filter 0.15s;
+    }
+
+    #clickBtn:active:not(:disabled) {
+      transform: scale(0.92);
+      filter: brightness(1.12);
+    }
+
+    #clickBtn:disabled {
+      opacity: 0.48;
+      filter: saturate(0.5);
+      cursor: not-allowed;
+    }
+
+    .arena-hint {
+      position: absolute;
+      bottom: 12px;
+      left: 8px;
+      right: 8px;
+      color: #8094b7;
+      font-size: 11px;
+      letter-spacing: 0.3px;
+      pointer-events: none;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    button.control {
+      flex: 1;
+      padding: 14px 16px;
+      border: 0;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform 0.15s, filter 0.15s;
+    }
+
+    button.control:active {
+      transform: scale(0.97);
+    }
+
+    #startBtn {
+      background: linear-gradient(100deg, var(--cyan), var(--green));
+      color: #03131a;
+      box-shadow: 0 8px 25px #35e8ff22;
+    }
+
+    #resetBtn {
+      background: #ffffff0a;
+      border: 1px solid #ffffff19;
+      color: #c9d6eb;
+    }
+
+    .result {
+      min-height: 55px;
+      margin-top: 17px;
+      padding: 12px;
+      border-radius: 14px;
+      background: #050a17a8;
+      color: #b5c5dc;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .result strong {
+      color: #fff;
+    }
+
+    .result .rank {
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .footer {
+      margin: 19px 0 0;
+      color: #7889a6;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer strong {
+      color: #aabbd5;
+    }
+
+    .float {
+      position: fixed;
+      z-index: 10;
+      pointer-events: none;
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 1000;
+      text-shadow: 0 0 12px #53ffb0;
+      animation: floatUp 0.7s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(0.8);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-55px) scale(1.25);
+      }
+    }
+
+    .pulse {
+      animation: pulse 0.25s ease;
+    }
+
+    @keyframes pulse {
+      50% {
+        box-shadow:
+          0 0 0 15px #53ffb01c,
+          0 0 45px #35e8ff99;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .page {
+        width: calc(100% - 18px);
+        padding-top: 15px;
+      }
+
+      .card {
+        padding: 19px 14px;
+      }
+
+      .stat {
+        padding: 11px 3px;
+      }
+
+      .arena {
+        min-height: 155px;
+      }
+
+      #clickBtn {
+        width: 118px;
+        height: 118px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
+    <div class="brand">
+      <span class="brand-mark">V</span>
+      Ved Games Production
+    </div>
 
-<div class="box">
+    <section class="card" aria-labelledby="gameTitle">
+      <h1 id="gameTitle">CLICKER ARENA</h1>
 
-  <h1>Clicker Arena</h1>
+      <p class="subtitle">
+        One arena. 15 seconds. How fast can you click?<br>
+        Build your score and claim your rank.
+      </p>
 
-  <div id="slogan">Ready to become a legend?</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">TIME LEFT</div>
+          <div class="stat-value cyan">
+            <span id="time">15.0</span><small style="font-size:13px">s</small>
+          </div>
+        </div>
 
-  <div class="timer">Time: <span id="time">10</span>s</div>
+        <div class="stat">
+          <div class="stat-label">SCORE</div>
+          <div class="stat-value green" id="score">0</div>
+        </div>
 
-  <h2>Score: <span id="score">0</span></h2>
+        <div class="stat">
+          <div class="stat-label">CLICKS / SEC</div>
+          <div class="stat-value" id="cps">0.0</div>
+        </div>
+      </div>
 
-  <button id="startBtn" onclick="startGame()">START</button>
-  <button id="clickBtn" onclick="clickGame(event)" disabled>CLICK</button>
+      <div class="progress" aria-label="Time remaining">
+        <div id="progressBar"></div>
+      </div>
 
-  <h3>Clicks/sec: <span id="cps">0</span></h3>
+      <div class="arena" id="arena">
+        <button id="clickBtn" type="button" disabled aria-label="Click to score">
+          TAP!
+        </button>
+        <div class="arena-hint" id="arenaHint">
+          Press START to enter the arena
+        </div>
+      </div>
 
-  <div class="rank">Rank: <span id="rank">Not Started</span></div>
+      <div class="controls">
+        <button class="control" id="startBtn" type="button">
+          ▶ START GAME
+        </button>
+        <button class="control" id="resetBtn" type="button">
+          ↻ RESET
+        </button>
+      </div>
 
-  <h3>Result CPS: <span id="finalCps">-</span></h3>
+      <div class="result" id="result" aria-live="polite">
+        Your personal best:
+        <strong id="best">0</strong> clicks. Ready when you are!
+      </div>
+    </section>
 
-  <div class="footer">@VedGames Production</div>
+    <div class="footer">
+      MADE WITH ♥ BY <strong>VED GAMES PRODUCTION</strong>
+    </div>
+  </main>
 
-</div>
+  <script>
+    (() => {
+      const GAME_DURATION = 15;
 
-<script>
+      const $ = id => document.getElementById(id);
 
-let score=0;
-let time=10;
-let clicks=0;
-let running=false;
-let interval;
+      const timeText = $("time");
+      const scoreText = $("score");
+      const cpsText = $("cps");
+      const clickBtn = $("clickBtn");
+      const startBtn = $("startBtn");
+      const resetBtn = $("resetBtn");
+      const progressBar = $("progressBar");
+      const arenaHint = $("arenaHint");
+      const result = $("result");
 
-/* SLOGANS */
-let slogans=[
-"Ready to become a legend?",
-"Tap faster than your limits!",
-"Every click builds your power!",
-"Only pros survive the arena!",
-"Speed is everything!"
-];
+      let score = 0;
+      let running = false;
+      let startTime = 0;
+      let endTime = 0;
+      let rafId = 0;
+      let best = 0;
 
-let sloganIndex=0;
+      try {
+        best = Number(localStorage.getItem("clickerArenaBest") || 0);
+      } catch (error) {
+        best = 0;
+      }
 
-setInterval(()=>{
-  sloganIndex=(sloganIndex+1)%slogans.length;
-  document.getElementById("slogan").innerText=slogans[sloganIndex];
-},2000);
+      $("best").textContent = best;
 
-/* START GAME */
-function startGame(){
-  score=0;
-  time=10;
-  clicks=0;
-  running=true;
+      function rankFor(cps) {
+        if (cps < 2) return "🥉 Rookie";
+        if (cps < 4) return "🥈 Pro";
+        if (cps < 6) return "🥇 Elite";
+        if (cps < 8) return "🔥 Hardcore";
+        return "👑 Legend";
+      }
 
-  document.getElementById("score").innerText=0;
-  document.getElementById("time").innerText=10;
-  document.getElementById("rank").innerText="Playing...";
-  document.getElementById("finalCps").innerText="-";
+      function updateStats(now) {
+        const elapsed = Math.min(
+          GAME_DURATION,
+          Math.max(0, (now - startTime) / 1000)
+        );
 
-  document.getElementById("clickBtn").disabled=false;
+        const remaining = Math.max(0, GAME_DURATION - elapsed);
 
-  interval=setInterval(()=>{
-    time--;
-    document.getElementById("time").innerText=time;
+        timeText.textContent = remaining.toFixed(1);
+        scoreText.textContent = score;
+        cpsText.textContent = (
+          score / Math.max(elapsed, 0.25)
+        ).toFixed(1);
 
-    if(time<=0){
-      endGame();
-    }
-  },1000);
-}
+        progressBar.style.width =
+          (remaining / GAME_DURATION * 100) + "%";
 
-/* CLICK */
-function clickGame(e){
-  if(!running) return;
+        if (running && remaining > 0) {
+          rafId = requestAnimationFrame(updateStats);
+        } else if (running) {
+          endGame();
+        }
+      }
 
-  score++;
-  clicks++;
+      function startGame() {
+        if (running) return;
 
-  document.getElementById("score").innerText=score;
+        score = 0;
+        running = true;
+        startTime = performance.now();
+        endTime = startTime + GAME_DURATION * 1000;
 
-  let f=document.createElement("div");
-  f.className="float";
-  f.innerText="+1";
-  f.style.left=e.pageX+"px";
-  f.style.top=e.pageY+"px";
-  document.body.appendChild(f);
+        clickBtn.disabled = false;
+        startBtn.textContent = "▶ GAME RUNNING";
+        arenaHint.textContent = "Tap the button as fast as you can!";
+        result.textContent = "Keep going — every click counts!";
 
-  setTimeout(()=>f.remove(),1000);
-}
+        timeText.textContent = GAME_DURATION.toFixed(1);
+        scoreText.textContent = "0";
+        cpsText.textContent = "0.0";
+        progressBar.style.width = "100%";
 
-/* END */
-function endGame(){
-  running=false;
-  clearInterval(interval);
-  document.getElementById("clickBtn").disabled=true;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(updateStats);
+      }
 
-  let cps=(clicks/10).toFixed(2);
-  document.getElementById("finalCps").innerText=cps;
+      function endGame() {
+        if (!running) return;
 
-  document.getElementById("rank").innerText=getRank(cps);
-}
+        running = false;
+        cancelAnimationFrame(rafId);
 
-/* RANK */
-function getRank(cps){
-  if(cps<2) return "🥉 Rookie";
-  if(cps<4) return "🥈 Pro";
-  if(cps<6) return "🥇 Elite";
-  if(cps<8) return "🔥 Hardcore";
-  return "👑 Legend";
-}
+        const cps = score / GAME_DURATION;
 
-</script>
+        timeText.textContent = "0.0";
+        cpsText.textContent = cps.toFixed(1);
+        progressBar.style.width = "0%";
+        clickBtn.disabled = true;
 
+        startBtn.textContent = "↻ PLAY AGAIN";
+        arenaHint.textContent = "Round complete — can you beat it?";
+
+        const isNewBest = score > best;
+
+        if (isNewBest) {
+          best = score;
+
+          try {
+            localStorage.setItem("clickerArenaBest", String(best));
+          } catch (error) {
+            // The game still works if storage is unavailable.
+          }
+
+          $("best").textContent = best;
+        }
+
+        result.innerHTML =
+          `Final score: <strong>${score}</strong> clicks · ` +
+          `<strong>${cps.toFixed(2)}</strong> clicks/sec<br>` +
+          `Rank: <span class="rank">${rankFor(cps)}</span>` +
+          (isNewBest ? " · ✨ NEW PERSONAL BEST!" : "");
+      }
+
+      function resetGame() {
+        running = false;
+        cancelAnimationFrame(rafId);
+
+        score = 0;
+
+        timeText.textContent = GAME_DURATION.toFixed(1);
+        scoreText.textContent = "0";
+        cpsText.textContent = "0.0";
+        progressBar.style.width = "100%";
+
+        clickBtn.disabled = true;
+        startBtn.textContent = "▶ START GAME";
+        arenaHint.textContent = "Press START to enter the arena";
+
+        result.innerHTML =
+          `Your personal best: <strong id="best">${best}</strong>` +
+          " clicks. Ready when you are!";
+      }
+
+      function makeFloat(event) {
+        const floating = document.createElement("span");
+
+        floating.className = "float";
+        floating.textContent = "+1";
+
+        let x;
+        let y;
+
+        if (event && event.clientX > 0) {
+          x = event.clientX;
+          y = event.clientY;
+        } else {
+          const rect = clickBtn.getBoundingClientRect();
+          x = rect.left + rect.width / 2;
+          y = rect.top + 20;
+        }
+
+        floating.style.left = x + "px";
+        floating.style.top = y + "px";
+
+        document.body.appendChild(floating);
+
+        floating.addEventListener(
+          "animationend",
+          () => floating.remove(),
+          { once: true }
+        );
+      }
+
+      clickBtn.addEventListener("click", event => {
+        if (!running || performance.now() >= endTime) return;
+
+        score++;
+        scoreText.textContent = score;
+
+        makeFloat(event);
+
+        clickBtn.classList.remove("pulse");
+        void clickBtn.offsetWidth;
+        clickBtn.classList.add("pulse");
+      });
+
+      startBtn.addEventListener("click", startGame);
+      resetBtn.addEventListener("click", resetGame);
+
+      document.addEventListener("visibilitychange", () => {
+        if (running && performance.now() >= endTime) {
+          endGame();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
