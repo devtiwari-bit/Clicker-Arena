@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="google-site-verification" content="lWj1SJEMwzx8-Du4kVNx6Q-MwCpx8_rDB4k-ImuEpmU">
 
-<title>Clicker Arena 2.0 - Ved Games Production</title>
-<meta name="description" content="Play Clicker Arena free online! Test your speed, build combos, unlock ranks, earn achievements and beat your high score in this neon arcade game.">
+<title>Clicker Rush X - Ved Games Production</title>
+<meta name="description" content="Play Clicker Rush X free online! Test your speed, build combos, unlock ranks, earn achievements and beat your high score in this neon arcade game.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://devtiwari-bit.github.io/Clicker-Arena/">
+<link rel="canonical" href="https://devtiwari-bit.github.io/Clicker-Rush-X/">
 <link rel="icon" type="image/png" href="favicon.png">
 <meta name="theme-color" content="#070b18">
 
-<meta property="og:title" content="Clicker Arena 2.0 - Ved Games Production">
-<meta property="og:description" content="Enter the arena, build your combo, unlock ranks and beat your personal best!">
-<meta property="og:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
-<meta property="og:url" content="https://devtiwari-bit.github.io/Clicker-Arena/">
+<meta property="og:title" content="Clicker Rush X - Ved Games Production">
+<meta property="og:description" content="Enter Clicker Rush X, build your combo, unlock ranks and beat your personal best!">
+<meta property="og:image" content="https://devtiwari-bit.github.io/Clicker-Rush-X/preview.png">
+<meta property="og:url" content="https://devtiwari-bit.github.io/Clicker-Rush-X/">
 <meta property="og:type" content="website">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Clicker Arena 2.0">
-<meta name="twitter:description" content="Test your clicking speed in this free neon arcade game.">
-<meta name="twitter:image" content="https://devtiwari-bit.github.io/Clicker-Arena/preview.png">
+<meta name="twitter:title" content="Clicker Rush X">
+<meta name="twitter:description" content="Test your clicking speed in Clicker Rush X, a free neon arcade game.">
+<meta name="twitter:image" content="https://devtiwari-bit.github.io/Clicker-Rush-X/preview.png">
 
 <style>
 :root {
@@ -580,7 +580,7 @@ h1 {
 
   <section class="card">
 
-    <h1>CLICKER ARENA</h1>
+    <h1>CLICKER RUSH X</h1>
     <div class="version">ARCADE EDITION 2.0</div>
 
     <p class="subtitle">
@@ -771,9 +771,7 @@ h1 {
     if (Array.isArray(savedAchievements)) {
       unlocked = new Set(savedAchievements);
     }
-  } catch (error) {
-    // The game still works when browser storage is unavailable.
-  }
+  } catch (error) {}
 
   bestText.textContent = best;
 
@@ -827,9 +825,7 @@ h1 {
 
       oscillator.start();
       oscillator.stop(ctx.currentTime + length);
-    } catch (error) {
-      // Sound is optional; gameplay should never depend on it.
-    }
+    } catch (error) {}
   }
 
   function playClickSound() {
@@ -1160,7 +1156,6 @@ h1 {
     }
   });
 
-  // Decorative background stars.
   const background = $("background");
 
   for (let i = 0; i < 35; i++) {
