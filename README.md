@@ -1,10 +1,11 @@
-🎮 Clicker Arena
+🎮 Clicker Rush X
 
 ⚡ Test Your Speed. Beat Your Record. Become a Legend!
 
-Welcome to Clicker Arena, a fast-paced browser clicking game developed by Ved Games Production. Test your clicking speed, improve your reflexes, compete against your personal best, and climb the ranks from Rookie to Speed God!
+Welcome to Clicker Rush X, a fast-paced browser clicking game developed by Ved Games Production. Test your clicking speed, improve your reflexes, compete against your personal best, and climb the ranks from Rookie to Speed God!
 
-🌐 Play Now: "Clicker Arena" (https://devtiwari-bit.github.io/Clicker-Arena/)
+🌐 Play Now:
+https://devtiwari-bit.github.io/Clicker-Rush-X/
 
 ---
 
@@ -25,7 +26,8 @@ Welcome to Clicker Arena, a fast-paced browser clicking game developed by Ved Ga
 
 🕹️ How to Play
 
-1. Open the "Clicker Arena website" (https://devtiwari-bit.github.io/Clicker-Arena/).
+1. Open the Clicker Rush X website:
+   https://devtiwari-bit.github.io/Clicker-Rush-X/
 2. Select your preferred time mode.
 3. Start the game.
 4. Click the target as many times as you can before the timer reaches zero.
@@ -36,7 +38,7 @@ Welcome to Clicker Arena, a fast-paced browser clicking game developed by Ved Ga
 
 🏅 Ranking System
 
-Your performance determines your rank. Keep practicing, improve your clicking speed, and aim for the highest rank available in the game.
+Your performance determines your rank. Keep practicing, improve your clicking speed, and aim for the highest rank available in Clicker Rush X.
 
 ---
 
@@ -65,9 +67,9 @@ No installation or additional dependencies are required.
 
 🌐 Live Demo
 
-Play the game here:
+Play Clicker Rush X here:
 
-https://devtiwari-bit.github.io/Clicker-Arena/
+https://devtiwari-bit.github.io/Clicker-Rush-X/
 
 ---
 
@@ -75,9 +77,11 @@ https://devtiwari-bit.github.io/Clicker-Arena/
 
 Ved Games Production
 
-Developer: "DevTiwari" (https://github.com/devtiwari-bit)
+Developer: DevTiwari
+https://github.com/devtiwari-bit
 
-GitHub Repository: "Clicker Arena" (https://github.com/devtiwari-bit/Clicker-Arena)
+GitHub Repository: Clicker Rush X
+https://github.com/devtiwari-bit/Clicker-Rush-X
 
 ---
 
@@ -87,4 +91,4 @@ This project is available for personal and educational use. Please contact the d
 
 ---
 
-⭐ Enjoying Clicker Arena? Visit the live game, challenge your clicking speed, and aim to become a legend!
+⭐ Enjoying Clicker Rush X? Visit the live game, challenge your clicking speed, and aim to become a legend!
